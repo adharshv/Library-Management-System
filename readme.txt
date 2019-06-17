@@ -1,7 +1,7 @@
 Library Management System:
 
 
-1. cd into the project cd .../mylibrary/library from the command prompt
+1. enter the library directory from command prompt
 2. create a virtual environment
 3. install django using pip installer
 4. install psycopg2 using pip installer
