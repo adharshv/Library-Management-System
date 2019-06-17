@@ -1,0 +1,28 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <title>Book Loan Absent.html</title>
+</head>
+<body>
+        <div>
+            <a href = "{% url 'book_return_index' %}" >Back to Book Return</a>
+        </div>
+        <div>
+            <a href = "{% url 'home_index' %}" >Home</a>
+        </div>
+
+
+    <header class="container center-align">
+        
+        <h1>Sorry, the borrower {{borrower_obj.card_id}} doesnt have a book loan with ISBN: {{book_obj.isbn}}</h1>
+
+    </header>
+
+    
+    
+    
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Author Details</title>
+</head>
+<body>
+        <H3>
+            {{author.isbn}} &nbsp;&nbsp;
+        </H3>
+    </br>
+        <H2>Books</H2>
+            <ul>
+                {% for book in author.books %}
+                    <li>
+                        {{book.title}}
+                    </li>
+                {% endfor %}
+            </ul>
+        <a href = "{% url 'author_index' %}" >Back to Index</a>
+</body>
+</html>

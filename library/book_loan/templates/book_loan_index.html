@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Book Loans</title>
+</head>
+<body>
+
+        <div>
+            <a href = "{% url 'book_search_index' %}" >Back to Book Search</a>
+        </div>
+        <div>
+            <a href = "{% url 'home_index' %}" >Home</a>
+        </div>
+
+    <h1>Book Loans</h1>
+    <table>
+        <tr>
+            <th>Loan ID</th>
+            <th>ISBN</th>
+            <th>Card ID</th>
+            <th>Date out</th>
+            <th>Due Date</th>
+        </tr>
+        {% for book_loan in book_loans %}
+        <tr>
+            <td>{{book_loan.loan_id}}</td>
+            <td>{{book_loan.book.isbn}}</td>
+            <td>{{book_loan.borrower.card_id}}</td>
+            <td>{{book_loan.date_out}}</td>
+            <td>{{book_loan.due_date}}</td>
+        </tr>
+        {% endfor %}  
+
+    </table>
+    
+</body>
+</html>

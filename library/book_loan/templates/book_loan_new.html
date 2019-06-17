@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>New Book Loan</title>
+</head>
+<body>
+
+    <form method="POST" action="{% url 'book_loan_create' %}">
+        {% csrf_token %}
+        <input type="text" name="textfield">
+        <input type='hidden' name='isbn' value= {{isbn}} /> 
+        <button type="submit">Enter Borrower ID</button>
+        </form>
+    
+</body>
+</html>

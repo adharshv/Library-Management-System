@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Book Return Results</title>
+</head>
+<body>
+
+        <div>
+            <a href = "{% url 'book_return_index' %}" >Back to Book Return</a>
+        </div>
+        <div>
+            <a href = "{% url 'home_index' %}" >Home</a>
+        </div>
+
+    <h1>Book Return Results</h1>
+    <table>
+        <tr>
+            <th>ISBN</th>
+            <th>Title</th>
+            <th>Authors</th>
+        </tr>
+
+        {% for eachbook in res %}
+            {% if not eachbook.avail %}    
+                <tr>                      
+                    <td>{{ eachbook.isbn }}</td>          
+                    <td>
+                        <a href="{% url 'book_loan_return' eachbook.isbn %}">
+                            {{ eachbook.title }}
+                        </a> 
+                    </td>
+                    {% for eachauthor in eachbook.authors %}
+                        <td>{{ eachauthor.name }}</td>
+                    {% endfor %}
+                </tr>
+            {% endif %}
+        {% endfor %}
+
+        
+        
+        {% for eachbook in res1 %}
+            {% if not eachbook.avail %}
+                <tr>                                
+                    <td>{{ eachbook.isbn }}</td>
+                    <td>
+                        <a href="{% url 'book_loan_return' eachbook.isbn %}">
+                            {{ eachbook.title }}
+                        </a>
+                    </td>
+                    <td>
+                        {% for eachauthor in eachbook.authors %}
+                            {{ eachauthor.name }}
+                        {% endfor %}
+                    </td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+            
+            
+       
+
+        {% for eachborrower in res2 %}
+            {% for eachbook in eachborrower.books %}
+                {% if eachbook.avail == False %}
+                    <tr>                                
+                        <td>{{ eachbook.isbn }}</td>
+                        <td>
+                            <a href="{% url 'book_loan_return' eachbook.isbn %}">
+                            {{ eachbook.title }}
+                            </a>
+                        </td>
+                        {% for eachauthor in eachbook.authors %}
+                            <td>{{ eachauthor.name }}</td>
+                        {% endfor %}    
+                    </tr>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    </table>
+</body>
+</html>
